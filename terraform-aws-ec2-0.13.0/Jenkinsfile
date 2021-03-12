@@ -19,6 +19,26 @@ pipeline{
                     echo "========A execution failed========"
                 }
             }
+        stage("Terraform Init and Plan"){
+            steps{
+                echo "Executing Terraform"
+                sh 'cd _example/basic_example/'
+                sh 'sudo tfswitch 0.13.6'
+                sh 'sudo terraform init'
+            }
+            post{
+                always{
+                    echo "====++++always++++===="
+                }
+                success{
+                    echo "====++++A executed successfully++++===="
+                }
+                failure{
+                    echo "====++++A execution failed++++===="
+                }
+        
+            }
+        }
         }
     }
     post{
