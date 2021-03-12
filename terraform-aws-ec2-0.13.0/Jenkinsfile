@@ -3,7 +3,7 @@ pipeline{
     stages{
  
         stage("Git Checkout "){
-            steps{
+            steps {
                 git branch: 'main',
                 credentialsId: '6bc8f840-c1ae-4a4d-aea0-af92ab6f29f7',
                 url: 'git@github.com:rupinder-on-github/knowledgetub2-ec2.git'
@@ -20,7 +20,7 @@ pipeline{
                 }
             }
         stage("Terraform Init and Plan"){
-            steps{
+            steps {
                 echo "Executing Terraform"
                 sh 'cd _example/basic_example/'
                 sh 'sudo tfswitch 0.13.6'
@@ -39,7 +39,6 @@ pipeline{
         
             }
         }
-        }
     }
     post{
         always{
@@ -52,4 +51,5 @@ pipeline{
             echo "========pipeline execution failed========"
         }
     }
+}
 }
