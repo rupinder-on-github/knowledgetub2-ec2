@@ -19,6 +19,7 @@ pipeline{
                     echo "========A execution failed========"
                 }
             }
+        }
         stage("Terraform Init and Plan"){
             steps {
                 echo "Executing Terraform"
@@ -39,7 +40,6 @@ pipeline{
         
             }
         }
-    }
     post{
         always{
             echo "========always========"
