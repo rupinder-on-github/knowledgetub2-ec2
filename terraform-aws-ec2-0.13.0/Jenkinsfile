@@ -5,7 +5,7 @@ pipeline{
         stage("Git Checkout "){
             steps{
                 git branch: 'main',
-                credentialsId: 'rupinder-on-github',
+                credentialsId: '6bc8f840-c1ae-4a4d-aea0-af92ab6f29f7',
                 url: 'git@github.com:rupinder-on-github/knowledgetub2-ec2.git'
             }
             post{
